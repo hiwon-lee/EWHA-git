@@ -1,1 +1,1 @@
-{"name":"Local: 1001","url":"c:\\Users\\leath\\EWHA-git\\1001.cpp","tests":[{"id":1699949842054,"input":"2 4","output":"-2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\leath\\EWHA-git\\1001.cpp","group":"local","local":true}
+{"name":"Local: 1001","url":"c:\\Users\\leath\\EWHA-git\\1001.cpp","tests":[{"id":1699960613453,"input":"4 2","output":"6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\leath\\EWHA-git\\1001.cpp","group":"local","local":true}

@@ -167,7 +167,7 @@ void drawInit()
 
 void gotoxy(int x, int y)
 {
-    COORD pos = {x * 2, y};
+    COORD pos = {static_cast<SHORT>(x * 2), static_cast<SHORT>(y)};
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
