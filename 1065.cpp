@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-bool isLimit(int limit, int curr)
+bool isLimit(int limitnum, int curr)
 {
     bool limit = false;
     if (limit < curr)
@@ -17,21 +17,27 @@ int main()
 {
     int n, cnt = 0;
     cin >> n;
-    vector<int> arr(n);
+    // vector<int> arr(n);
 
     // 몆자리 수인가
-    int volumn = n / 10;
+    int volumn = n / 100;
 
-    while (volumn)
-    {
-
-        // int diff =
-
-        if (isLimit)
-        {
-            break;
-        }
+    if (volumn < 1)
+    { // 만약 한,두자리면
+        cout << n;
     }
-
-    cout << cnt;
+    else
+    {
+        cnt = 99;
+        int curr = 111;
+        while (curr <= n)
+        {
+            if ((curr / 100 - (curr / 10) % 10) == ((curr / 10) % 10 - (curr % 10)))
+            {
+                cnt++;
+            }
+            curr++;
+        }
+        cout << cnt;
+    }
 }
