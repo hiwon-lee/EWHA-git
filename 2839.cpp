@@ -34,7 +34,7 @@ int main()
             if (max == 0)
             {
                 cout << -1;
-                break;
+                break; // 반복문 멈추는걸 잘 챙기자
             }
             max--;
         }
