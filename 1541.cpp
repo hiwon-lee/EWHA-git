@@ -33,7 +33,7 @@ int main()
 
     string currNumString = "-1";
     int tempNum = 0;
-    bool isPrevMinus = false;
+    bool isStartBracket = false;
 
     for (auto &element : input)
     {
@@ -46,50 +46,79 @@ int main()
             else
             { // 정의인 경우
                 currNumString += element;
-                cout << currNumString << endl;
+                // cout << currNumString << endl;
             }
         }
         else
         { // 연산자인 경우
-            cout << "temp num" << tempNum << endl;
-            currNumString = "-1";
+            // cout << "temp num" << tempNum << endl;
+            // currNumString = "-1";
             if (element == '+')
             {
-                tempNum += getNum(currNumString);
-                isPrevMinus = false;
-            }
-            else
-            {
-                if (!isPrevMinus)
-                { // 이전에 마이너스가 아닌경우
-                    rst += tempNum;
-                    // currNumString = "-1";
-
-                    // tempNum = 0;
-                    isPrevMinus = true;
-                    cout << "rst after" << rst << endl;
+                // isStartBracket = false;
+                if (isStartBracket)
+                {
+                    // if (tempNum == 99999999)
+                    // {
+                    //     // tempNum += getNum(currNumString);
+                    //     tempNum = 0;
+                    // }
+                    tempNum += getNum(currNumString);
                 }
                 else
                 {
-                    // tempNum += getNum(currNumString);
-                    // currNumString = "-1";
+                    tempNum += getNum(currNumString);
+                    // rst += tempNum;
+                    // tempNum = 0;
+                }
+            }
+            else
+            { //
+                if (isStartBracket)
+                { // - 뒤의 숫자를 결과에 추가해야한다.
+                    // rst = getNum(currNumString);
+
+                    tempNum += getNum(currNumString);
 
                     rst -= tempNum;
-                    isPrevMinus = false;
-                    cout << "rst prevminus " << rst << endl;
+                    tempNum = 0;
+                    // currNumString = "-1";
+
+                    // tempNum = 0;
+                    // isStartBracket = true;
+                    // cout << "rst after" << rst << endl;
                 }
-                tempNum = 0;
-                currNumString = "-1";
-                isPrevMinus = true;
+                else
+                {
+                    if (currNumString == "-")
+                    {
+                    }
+                    tempNum += getNum(currNumString);
+                    // currNumString = "-1";
+
+                    rst += tempNum;
+                    tempNum = 0;
+
+                    // isStartBracket = false;
+                    // cout << "rst prevminus " << rst << endl;
+                }
+                // tempNum = 0;
+                isStartBracket = true;
             }
+            currNumString = "-1";
         }
     }
     tempNum += getNum(currNumString);
-    cout << "final" << tempNum << endl;
+    // cout << "final" << tempNum << endl;
 
-    if (isPrevMinus)
+    if (isStartBracket)
+    {
+        // rst = getNum(currNumString);
+
+        // rst -= tempNum;
         rst -= tempNum;
+        cout << rst;
+    }
     else
-        rst += tempNum;
-    cout << rst;
+        cout << tempNum;
 }
