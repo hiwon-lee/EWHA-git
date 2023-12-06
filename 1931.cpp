@@ -17,9 +17,6 @@ int main()
 {
     int n;
     priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> timeList;
-    // 회의 시작과 끝나는 시간
-    // 회의가 겹치지 않게하면서 회의실을 사용할 수 잇는 회의의 최대개수
-    // 회의가 시작과동시에 끝날 수 잇음
 
     cin >> n;
 
@@ -29,31 +26,64 @@ int main()
         cin >> start >> finish;
 
         timeList.emplace(make_pair(start, finish));
-
-        // timeList.push(start, finish);
-
-        // 회의실 정보 받기
-        // TODO : 어떤 자료구조를 사용할지..
-        // pair? heap?
     }
+    bool isPrevSync = timeList.top().first == timeList.top().second ? true : false;
 
-    int time = timeList.top().second;
-    int rst = 0;
+    int prevEnd = timeList.top().second;
+    int rst = isPrevSync ? 1 : 0;
+    timeList.pop();
 
-    // 시작 시간을 오름차순으로 정렬한 후, 0
-
-    // 끝나는 시간을 비교하고
-    // 더 작은 끝나는 시간이 나오면 temp에 저장
-    for (int i = 0; i < timeList.size(); i++)
+    bool passTerm = false;
+    while (timeList.size())
     {
-        // cout << timeList.top().first << " " << timeList.top().second << endl;
-        // pair<int, int> currElement = timeList.pop();
-        if (time <= timeList.top().second)
+        if (passTerm)
         {
-            rst++;
+
+            if (prevEnd > timeList.top().first)
+            {
+                timeList.pop();
+                continue;
+            }
+            else
+            {
+                passTerm = false;
+            }
         }
+        else
+        { // 다음회의와 현재 회의 종료 시간이 같은 경우
+
+            // if (prevEnd > timeList.top().second)
+            //     prevEnd = timeList.top().second;
+            if (timeList.top().first == timeList.top().second)
+            { // 다음 회의의 종료와 시작이 같으면
+                if (!isPrevSync)
+                {
+                    rst++;
+                    isPrevSync = true;
+                }
+                else
+                {
+                    timeList.pop();
+                    continue;
+                }
+                // cout << timeList.top().first << " " << timeList.top().second << endl;
+            }
+            else
+            {
+                prevEnd = timeList.top().second;
+            }
+        }
+
+        if (prevEnd <= timeList.top().second)
+        {
+            prevEnd = timeList.top().second;
+        }
+        // isSync = false;
         timeList.pop();
     }
 
-    cout << rst;
+    cout << timeList.top().first << " " << timeList.top().second << endl;
+}
+
+cout << rst;
 }
