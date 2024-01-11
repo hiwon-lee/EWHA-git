@@ -1,0 +1,1 @@
+{"name":"Local: 11650","url":"c:\\Users\\leath\\EWHA-git\\11650.cpp","tests":[{"id":1704849478731,"input":"5\n3 4\n1 1\n1 -1\n2 2\n3 3","output":"1 -1\n1 1\n2 2\n3 3\n3 4"},{"id":1704850256890,"input":"2\n-1 99\n-2 400","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\leath\\EWHA-git\\11650.cpp","group":"local","local":true}
