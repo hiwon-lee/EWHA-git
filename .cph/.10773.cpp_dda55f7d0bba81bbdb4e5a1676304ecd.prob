@@ -1,0 +1,1 @@
+{"name":"Local: 10773","url":"c:\\Users\\leath\\EWHA-git\\10773.cpp","tests":[{"id":1705292271857,"input":"4\n3\n0\n4\n0","output":"0"},{"id":1705292277892,"input":"10\n1\n3\n5\n4\n0\n0\n7\n0\n0\n6","output":"7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\leath\\EWHA-git\\10773.cpp","group":"local","local":true}
