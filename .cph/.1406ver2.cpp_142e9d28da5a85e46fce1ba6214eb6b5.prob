@@ -1,0 +1,1 @@
+{"name":"Local: 1406ver2","url":"c:\\Users\\leath\\EWHA-git\\1406ver2.cpp","tests":[{"id":1705845314401,"input":"abcd\n3\nP x\nL\nP y","output":"abcdyx"},{"id":1705845321367,"input":"abc\n9\nL\nL\nL\nL\nL\nP x\nL\nB\nP y","output":"yxabc"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\leath\\EWHA-git\\1406ver2.cpp","group":"local","local":true}
